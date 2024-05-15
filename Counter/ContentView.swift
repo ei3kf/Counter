@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Text("Counter")
-                .font(.title)
+                .font(.largeTitle)
                 .padding()
             HStack{
                 ZStack {
@@ -24,10 +24,17 @@ struct ContentView: View {
                     }
                 }.frame(width: 100, height: 100)
                 
-                ZStack() {
-                    Rectangle().fill(Color.clear)
+                ZStack {
+                    Circle()
+                        .fill(Color.clear)
+                        .overlay(
+                            Circle()
+                                .stroke(Color.green, lineWidth: 2)
+                        )
                     Text("\(count)")
-                }.frame(width: 100, height: 100)
+                        .font(.system(size: 36))
+                }
+                .frame(width: 100, height: 100)
                 
                 ZStack {
                     Circle().fill(Color.yellow)
@@ -50,8 +57,9 @@ struct ContentView: View {
                 
                 ZStack {
                     Circle().fill(Color.yellow)
-                    Button("Reset") {
-                        self.count = 0
+                    Button("+ Random") {
+                        let randomInt = Int.random(in: 1..<10)
+                        self.count += randomInt
                     }
                 }.frame(width: 100, height: 100)
                 
@@ -65,7 +73,21 @@ struct ContentView: View {
                 Spacer()
             }
             
+            HStack {
+                Spacer()
+                
+                ZStack {
+                    Circle().fill(Color.yellow)
+                    Button("Reset") {
+                        self.count = 0
+                    }
+                }.frame(width: 100, height: 100)
+
+                Spacer()
+            }
+            
             Text("2024 Andy Clements EI3KF")
+                .font(.footnote)
                 .padding()
         }
     }

@@ -22,7 +22,7 @@ struct ContentView: View {
                     Button("+") {
                         self.count += 1
                     }
-                }.frame(width: 100, height: 100)
+                }.frame(width: 75, height: 100)
                 
                 ZStack {
                     Circle()
@@ -41,7 +41,7 @@ struct ContentView: View {
                     Button("-") {
                         self.count -= 1
                     }
-                }.frame(width: 100, height: 100)
+                }.frame(width: 75, height: 100)
                 
             }.padding()
             
@@ -53,7 +53,7 @@ struct ContentView: View {
                     Button("+10") {
                         self.count += 10
                     }
-                }.frame(width: 100, height: 100)
+                }.frame(width: 75, height: 100)
                 
                 ZStack {
                     Circle().fill(Color.yellow)
@@ -61,14 +61,22 @@ struct ContentView: View {
                         let randomInt = Int.random(in: 1..<10)
                         self.count += randomInt
                     }
-                }.frame(width: 100, height: 100)
-                
+                }.frame(width: 75, height: 100)
+            
+                ZStack {
+                    Circle().fill(Color.yellow)
+                    Button("Random -") {
+                        let randomInt = Int.random(in: 1..<10)
+                        self.count -= randomInt
+                    }
+                }.frame(width: 75, height: 100)
+        
                 ZStack {
                     Circle().fill(Color.yellow)
                     Button("-10") {
                         self.count -= 10
                     }
-                }.frame(width: 100, height: 100)
+                }.frame(width: 75, height: 100)
                 
                 Spacer()
             }
